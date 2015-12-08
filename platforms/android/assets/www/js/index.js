@@ -16,6 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+ var recognition;
 var app = {
     // Application Constructor
     initialize: function() {
@@ -34,6 +35,12 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+            recognition = new SpeechRecognition();
+            recognition.onresult = function(event) {
+                if (event.results.length > 0) {
+                    q.value = event.results[0][0].transcript;
+                    q.form.submit();
+                }        
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {

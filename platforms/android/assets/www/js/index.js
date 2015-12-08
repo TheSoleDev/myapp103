@@ -40,7 +40,8 @@ var app = {
                 if (event.results.length > 0) {
                     q.value = event.results[0][0].transcript;
                     q.form.submit();
-                }        
+                }     
+            }   
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
